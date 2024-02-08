@@ -1,4 +1,5 @@
-// thuật toán tìm kiếm theo chiều sâu dựa trên ma trận kề
+// thuật toán tìm kiếm theo chiều sâu DFS
+//dựa trên ma trận kề
 
 #include <iostream>
 #include <bits/stdc++.h>

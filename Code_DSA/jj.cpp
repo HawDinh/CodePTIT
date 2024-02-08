@@ -14,13 +14,12 @@ int main() {
             b[i]=a[i];
         }
 
-        sort (b+1,b+n+1);
+        sort (b,b+n);
         
         int l=1;
         int r=n;
-
-        while (l <= n && a[l] == b[l]) ++l;
-        while (r >= 1 && a[r] == b[r]) --r;
+        while (a[l]==b[l]) ++l;
+        while (a[r]==b[r]) --r;
 
         cout << l << " " << r;
         cout << endl;

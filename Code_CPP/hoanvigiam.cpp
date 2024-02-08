@@ -47,8 +47,9 @@ void sinh(){
     }
     if (i==0) ok=0;
     else {
-        int j=n;
-        swap (a[i],a[j]);
+        int k=n;
+        while (a[k]>a[i]) --k;
+        swap (a[i],a[k]);
         int l=i+1;
         int r=n;
         while (l<r){
