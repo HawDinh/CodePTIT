@@ -1,27 +1,25 @@
 #include <iostream>
 #include <bits/stdc++.h>
+#include <vector>
+#include <algorithm>
 using namespace std;
+vector<string> tmp;
+int n;
 
 int main() {
-    int t; cin >> t;
-    while (t--){
-        int n;
-        cin >> n;
-        int a[n+1];
-        int b[n+1];
-        for (int i=1;i<=n;i++) {
-            cin >> a[i];
-            b[i]=a[i];
+    cin >> n;
+    set<string> st;
+
+    for (int i=0;i<n;i++){
+        string s;
+        cin >> s;
+        st.insert(s);
+    }
+
+    for (string s:st){
+            tmp.push_back(s);
         }
 
-        sort (b,b+n);
-        
-        int l=1;
-        int r=n;
-        while (a[l]==b[l]) ++l;
-        while (a[r]==b[r]) --r;
-
-        cout << l << " " << r;
-        cout << endl;
-    }
-} 
+    for (string s:st) cout << s << " ";
+    return 0;
+}

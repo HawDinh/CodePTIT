@@ -36,6 +36,6 @@ int main() {
         }
     }
 
-    BFS_queue(3);
+    BFS_queue(1);
     return 0;
 }

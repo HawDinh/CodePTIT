@@ -60,14 +60,20 @@ void BFS(int s) {
 }
 
 void Duong_Di(int s, int t){
-    int v=t;
-    cout << v << " ";
-    int u=truoc[v];
-    while (u!=s){
-        cout << u << " ";
-        u=truoc[u];
+    if(truoc[t]==0) {
+        cout << "ko co!!!";
     }
-    cout << s << " ";
+    else {
+        int v=t;
+        cout << v << " ";
+
+        int u=truoc[v];
+        while (u!=s){
+            cout << u << " ";
+            u=truoc[u];
+        }
+        cout << s << " ";
+    }
 }
 
 int main() {
