@@ -1,0 +1,1 @@
+{"name":"Local: hoanvichuso","url":"c:\\VScode\\CodePTIT\\Code_DSA\\ThucHanh1\\hoanvichuso.cpp","tests":[{"id":1709888208912,"input":"2\n21\n104","output":"12 \n32\n14\n41\n104\n140\n401\n410"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\VScode\\CodePTIT\\Code_DSA\\ThucHanh1\\hoanvichuso.cpp","group":"local","local":true}

@@ -1,63 +1,81 @@
+
+#include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
-int a[101],b[101];
 int n;
-int ok[101]={0};
+int a[101][101];
+int ok[101],b[101];
+int s,t;
+stack <int> st;
+vector <stack<int>> ans;
 
-void in(int a[]){
-    for (int i=1;i<=n;i++) cout << a[i] << " ";
-    cout << endl;
+void sang(map<int, int>& mp) {
+    for (int i = 1; i <= n; i++) {
+        if (mp[i] == 0) b[i] = 0;
+    }
 }
 
-int sinh(){
-    int j=n-1;
-    while (j>0 && a[j]>a[j+1]) --j;
-    if (j==0) return 0;
+int check(){
+    for (int i=1;i<=n;i++) {
+        if (b[i]) return 1;
+    }
+    return 0;
+}
+
+void DFS(int s,int t){
+    ok[s]=0;
+    st.push(s);
+    if  (s==t) {
+        map<int, int> mp;
+        for (auto x : st) mp[x]++;
+        sang(mp);
+        ok[s]=1;
+        st.pop();
+        return;
+    }
+
+    if (check()==0) return;
+
     else {
-        int k=n;
-        while (a[k]<a[j]) --k;
-        swap(a[j],a[k]);
-
-        int l=j+1;
-        int r=n;
-        while (l<=r){
-            swap(a[l],a[r]);
-            ++l;
-            --r;
+        for (int i=1;i<=n;i++){
+        if(a[s][i] && ok[i]){
+            DFS(i,t);
+            }
         }
     }
-    return 1;
-}
-
-void Try(int i){
-    for (int j=1;j<=n;j++){
-        if (!ok[j]){
-            ok[j]=1;
-            b[i]=a[j];
-            if (i==n) in(b);
-            else Try(i+1);
-            ok[j]=0;
-        }
-    }
-}
-
-void TestCase(){
-    cin >> n;
-    for (int i=1;i<=n;i++) cin >> a[i];
-
-    sort(a+1,a+n+1);
-
-    Try(1);
-
-    //in(a);
-    //while (sinh()) in(a);
-
+    ok[s]=1;
+    st.pop();
 }
 
 int main() {
-    int t=1;
-    while (t--){
-        TestCase();
+    cin >> n;
+    
+    /*for (int i=1;i<=n;i++){
+        ok[i]=1;
+        for (int j=1;j<=n;j++){
+            cin >> a[i][j];
+        }
+    }*/
+
+    for (int i=1;i<=n;i++){
+        ok[i]=1;
+        b[i]=1;
+        int m;
+        cin >> m;
+        for (int j=1;j<=m;j++){
+            int x;
+            cin >> x;
+            a[i][x]=1;
+            a[x][i]=1;
+        }
     }
+
+    cin >> s >> t;
+    DFS(s,t);
+
+    for (int i=1;i<=n;i++) {
+        if (b[i]) cout << i << " ";
+    }
+
     return 0;
 }

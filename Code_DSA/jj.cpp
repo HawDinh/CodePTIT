@@ -1,25 +1,45 @@
 #include <iostream>
 #include <bits/stdc++.h>
-#include <vector>
-#include <algorithm>
 using namespace std;
-vector<string> tmp;
 int n;
+int a[101];
+
+void in(){
+    for (int i=1;i<=n;i++) cout << a[i];
+    cout << " ";
+}
+
+int check(){
+    int l=1;
+    int r=n;
+    while (l<r){
+        if (a[l]!=a[r]) return 0;
+        else {
+            ++l;
+            --r;
+        }
+    }
+    return 1;
+}
+
+void Try(int i){
+    for (int j=0;j<=1;j++){
+        a[i]=j;
+        if (i==n) {
+            if (check()) in();
+        }
+        else Try(i+1);
+    }
+}
 
 int main() {
-    cin >> n;
-    set<string> st;
-
-    for (int i=0;i<n;i++){
-        string s;
-        cin >> s;
-        st.insert(s);
-    }
-
-    for (string s:st){
-            tmp.push_back(s);
+    int t; cin >> t;
+    while (t--){
+        int m; cin >> m;
+        for (int i=2;i<=m;i+=2){
+            n=i;
+            Try(1);
         }
-
-    for (string s:st) cout << s << " ";
-    return 0;
+        cout << endl;
+    }
 }
