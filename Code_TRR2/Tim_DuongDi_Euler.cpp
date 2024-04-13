@@ -27,7 +27,7 @@ int degAm(int u){
 
 int check_vohuong(){
     for (int i=1;i<=n;i++){
-        if (degAm!=degDuong) return 0;
+        if (degAm(i)!=degDuong(i)) return 0;
     }
     return 1;
 }
@@ -50,6 +50,7 @@ int TimDauVao(){
             if (degDuong(i)-degAm(i)==1) return i;
         }
     }
+    return -1;
 }
 
 int check(int i){
@@ -91,12 +92,23 @@ void EulerCycle(int u){
 int main() {
     cin >> n;
     
-    for (int i=1;i<=n;i++){
+    /*for (int i=1;i<=n;i++){
         ok[i]=1;
         for (int j=1;j<=n;j++){
             cin >> a[i][j];
         }
+    }*/
+
+    for (int i=1;i<=n;i++){
+        int m;
+        cin >> m;
+        for (int j=1;j<=m;j++){
+            int x;
+            cin >> x;
+            a[i][x]=1;
+        }
     }
+
 
     int u=TimDauVao();
     EulerCycle(u);

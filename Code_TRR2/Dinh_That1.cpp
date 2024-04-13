@@ -1,4 +1,5 @@
-
+//cách 1 dài nhất
+//cách 2 giống tìm đỉnh trụ, bỏ thử đỉnh u xem từ s đến t còn đường đi không
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
@@ -14,12 +15,10 @@ void DFS(int s,int t){
     st.push(s);
     if  (s==t) {
         ans.push_back(st);
-        ok[s]=1;
-        st.pop();
         return;
     }
 
-     else {
+    else {
         for (int i=1;i<=n;i++){
         if(a[s][i] && ok[i]){
             DFS(i,t);

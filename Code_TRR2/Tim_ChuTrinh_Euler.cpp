@@ -11,7 +11,6 @@ int check(int i){
     }
     return 0;
 }
-
 void EulerCycle(int u){
     if (!check(u)) {
         cout << "Khong ton tai chu trinh Euler" << endl;
@@ -45,13 +44,17 @@ int main() {
     cin >> n;
     
     for (int i=1;i<=n;i++){
-        ok[i]=1;
-        for (int j=1;j<=n;j++){
-            cin >> a[i][j];
+        int m;
+        cin >> m;
+        for (int j=1;j<=m;j++){
+            int x;
+            cin >> x;
+            a[i][x]=1;
         }
     }
 
-    EulerCycle(1);
+    int u; cin >> u;
+    EulerCycle(u);
 
     return 0;
 }
