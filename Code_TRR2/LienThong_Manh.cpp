@@ -53,14 +53,13 @@ void ReInit(){
 }
 
 int LienThong_Manh(){
-    ReInit();
     for (int i=1;i<=n;i++){
+        ReInit();
         BFS(i);
         //DFS(i);
         if (Tphan_LienThong()==0){
             return 0;
         }
-        ReInit();
     }
     return 1;
 }

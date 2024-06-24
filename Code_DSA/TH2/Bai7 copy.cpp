@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+const int maxn = 1001;
+int n, m;
+int dx[] = {1, 1, 0};
+int dy[] = {0, 1, 1};
+
+bool isSafe(int nx, int ny) {
+	if (nx >= 1 && nx <= n && ny >= 1 && ny <= m) return 1;
+	return 0;
+}
+
+int main() {
+	int t; cin >> t;
+	while (t--) {
+		cin >> n >> m;
+		int a[maxn][maxn], f[maxn][maxn];
+		for (int i = 1; i <= n; i++){
+			for (int j = 1; j <= m; j++){
+				cin >> a[i][j];
+			}
+		}
+		memset(f, 0, sizeof f);
+		queue<pair<int, int>> q;
+		q.push({1, 1});
+		int ans = -1;
+		while(!q.empty()) {
+			auto cur = q.front();
+			q.pop();
+			if (cur.first == n && cur.second == m){
+				ans = f[n][m];
+				break;
+			}
+			for (int i = 0; i < 3; i++){
+				int x = cur.first + dx[i];
+				int y = cur.second + dy[i];
+
+				int len = 0;
+				if (isSafe(x, y)){
+					len = abs(a[x][y] - a[cur.first][cur.second]);
+				}
+
+				if (len > 0){
+					int nx = cur.first + dx[i] * len;
+					int ny = cur.second + dy[i] * len;
+
+					if (isSafe(nx, ny) && !f[nx][ny]) {
+						f[nx][ny] = f[cur.first][cur.second] + 1;
+						q.push({ nx, ny });
+					}
+				}
+			}
+		}
+		cout << ans << endl;
+	}
+}

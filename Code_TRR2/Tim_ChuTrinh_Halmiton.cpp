@@ -25,7 +25,7 @@ void Try(int i,int u){
             if (i==n) {
                 if (a[j][u]) {
                     in();
-                    oke = 1j;
+                    oke = 1;
                 }
             } else {
                 Try(i + 1, u);

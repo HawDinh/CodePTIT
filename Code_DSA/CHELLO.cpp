@@ -3,17 +3,11 @@
 using namespace std;
 
 void TestCase(){
-    vector <int> b;
-    for (int i=1;i<6;i++) {
-        int x;
-        cin >> x;
-        b.push_back(x);
-    }
-    cout << b[b.size()] << " " << b[b.size()-1];
+    cout << "Hello PTIT";
 }
 
 int main() {
-    int t=1;
+    int t=1; cin >> t;
     while (t--){
         TestCase();
     }

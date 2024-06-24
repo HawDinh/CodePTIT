@@ -63,7 +63,7 @@ int main() {
     for (int i=1;i<=n;i++){
         if (ok[i]) {
             solt++;
-            cout << endl << "tplt" << " " << solt << ':' << " ";
+            cout << endl << "Thanh phan lien thong" << " " << solt << ':' << " ";
             DFS_stack(i);
         }
     }

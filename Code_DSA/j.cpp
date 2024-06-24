@@ -1,41 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
+int n,k;
+int a[10001][10001]={};
+int ok[101];
 
-void Binary_Search(int a[], int n, int k){
-    if (n == 0) {
-        cout << -1;
-        return;
-    }
+void DFS(int u){
+    stack <int> st;
+    st.push(u);
+    ok[u]=1; 
+    cout << u << " ";
 
-    int l=0;
-    int r=n-1;
-    int ans=-1;
-    
-    while (l<=r){
-        int mid=(l+r)/2;
-        if (a[mid] <= k) {
-            l=mid+1;
-            ans=mid;
+    while (!st.empty()){
+        int v=st.top();
+        st.pop();
+        for (int i=1;i<=n;i++) {
+            if (ok[i]==0 && a[v][i]) {
+                cout << i << " ";
+                ok[i]=1;
+                st.push(v);
+                st.push(i);
+                break;
+            }
         }
-        else r=mid-1;
     }
-    cout << ans;
 }
 
-void testCase() {
-    int n,k; cin >> n >> k;
-    int a[n];
-    for (int i=0;i<n;i++) cin >> a[i];
-
-    Binary_Search(a,n,k);
+void TestCase(){
+    cin >> n;
+    for (int i=1;i<=n;i++) ok[i]=0;
+    for (int i=1;i<=n;i++) {
+        for (int j=1;j<=n;j++) cin >> a[i][j];
+    }
+    int u; cin >> u;
+    DFS(u);
 }
+
 
 int main() {
     int t=1;
-    cin >> t;
     while (t--) {
-        testCase();
-        cout << "\n";
+        TestCase();
     }
-    return 0;
 }

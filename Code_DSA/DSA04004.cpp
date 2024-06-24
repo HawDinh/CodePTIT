@@ -9,7 +9,6 @@ void sang(){
 
 void testCase() {
     long long n,k; cin >> n >> k;
-    n++;
     for (int i=n;i>=1;i--) {
         if (k>f[i]) k-=f[i];
         else if (f[i]==k) {

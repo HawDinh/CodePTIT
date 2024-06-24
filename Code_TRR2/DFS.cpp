@@ -48,7 +48,7 @@ int main() {
         }
     }
 
-    DFS_stack(1);
+    DFS_stack(6);
     //DFS_dequy(1);
     return 0;
 }

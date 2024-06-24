@@ -160,8 +160,8 @@ void DanhSachKeSangDanhSachCanh(string filein, string fileout){
     out.close();
 }
 int main() {
-    MaTranKeSangDanhSachCanh("MaTranKe.txt","DsCanh.txt");
-    //MaTranKeSangDanhSachKe("MaTranKe.txt","DsKe.txt");
+    //MaTranKeSangDanhSachCanh("MaTranKe.txt","DsCanh.txt");
+    MaTranKeSangDanhSachKe("MaTranKe.txt","DsKe.txt");
     //DanhSachCanhSangMaTranKe("DsCanh.txt","MaTranKe.txt");
     //DanhSachCanhSangDanhSachKe("DsCanh.txt","DsKe.txt");
     //DanhSachKeSangMaTranKe("DsKe.txt","MaTranKe.txt");

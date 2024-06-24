@@ -65,8 +65,8 @@ int main() {
     int u; cin >> u;
     cout << "Tree DFS:";
     Tree_DFS(u);
-    //ReInit();
-    //cout << endl << "Tree BFS:";
-    //Tree_BFS(u);
+    ReInit();
+    cout << endl << "Tree BFS:";
+    Tree_BFS(u);
     return 0;
 }

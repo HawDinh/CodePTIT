@@ -1,45 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
+int n,k;
+int a[10001][10001]={};
+int ok[101];
 
-void Binary_Search(int a[], int n, int k){
-    if (n == 0) {
-        cout << -1;
-        return;
-    }
-
-    int l=0;
-    int r=n-1;
-    int ans=-1;
+void BFS(int u){
+    //cout << u << " ";
+    ok[u]=0;
+    queue <int> q;
+    q.push(u);
     
-    while (l<=r){
-        int mid=(l+r)/2;
-        if (a[mid]==k) {
-            ans=mid;
-            break;
+    while (!q.empty()){
+        int v=q.front();
+        q.pop();
+        for (int i=1;i<=n;i++) {
+            if (ok[i] && a[v][i]) {
+                ok[i]=0;
+                //cout << i << " ";
+                q.push(i);
+            }
         }
-        if (a[mid] < k) {
-            l=mid+1;
-            ans=mid;
-        }
-        else r=mid-1;
     }
-    cout << ans;
 }
 
-void testCase() {
-    int n,k; cin >> n >> k;
-    int a[n];
-    for (int i=0;i<n;i++) cin >> a[i];
-
-    Binary_Search(a,n,k);
+void TestCase(){
+    cin >> n >> k;
+    for (int i=1;i<=n;i++) ok[i]=1;
+    for (int i=1;i<=k;i++) {
+        int x,y; cin >> x >> y;
+        a[x][y]=1;
+        a[y][x]=1;
+    }
+    int dem=0;
+    for (int i=1;i<=n;i++) {
+        if (ok[i]) {
+            BFS(i);
+            ++dem;
+        }
+    }
+    cout << dem << endl;
 }
+
 
 int main() {
-    int t=1;
-    cin >> t;
+    int t=1; cin >> t;
     while (t--) {
-        testCase();
-        cout << "\n";
+        TestCase();
     }
-    return 0;
 }

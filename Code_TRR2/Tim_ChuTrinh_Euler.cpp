@@ -43,15 +43,22 @@ void EulerCycle(int u){
 int main() {
     cin >> n;
     
+    // for (int i=1;i<=n;i++){
+    //     int m;
+    //     cin >> m;
+    //     for (int j=1;j<=m;j++){
+    //         int x;
+    //         cin >> x;
+    //         a[i][x]=1;
+    //     }
+    // }
+
     for (int i=1;i<=n;i++){
-        int m;
-        cin >> m;
-        for (int j=1;j<=m;j++){
-            int x;
-            cin >> x;
-            a[i][x]=1;
+        for (int j=1;j<=n;j++){
+            cin >> a[i][j];
         }
     }
+
 
     int u; cin >> u;
     EulerCycle(u);

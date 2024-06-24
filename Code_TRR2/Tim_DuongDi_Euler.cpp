@@ -92,14 +92,14 @@ void EulerCycle(int u){
 int main() {
     cin >> n;
     
-    /*for (int i=1;i<=n;i++){
+    for (int i=1;i<=n;i++){
         ok[i]=1;
         for (int j=1;j<=n;j++){
             cin >> a[i][j];
         }
-    }*/
+    }
 
-    for (int i=1;i<=n;i++){
+    /*for (int i=1;i<=n;i++){
         int m;
         cin >> m;
         for (int j=1;j<=m;j++){
@@ -107,7 +107,7 @@ int main() {
             cin >> x;
             a[i][x]=1;
         }
-    }
+    }*/
 
 
     int u=TimDauVao();

@@ -47,21 +47,23 @@ void DFS(int i){
     }
 }
 
-int CheckLT(){
+int dem_tplt(){
+    int dem=0;
     for (int i=1;i<=n;i++){
-        if (ok[i]) return 0;
+        if (ok[i]) {
+            DFS(i);
+            dem++;
+        }
     }
-    return 1;
+    return dem;
 }
 
 void DuyetTru(){
+    int tmp=dem_tplt();
     for (int i=1;i<=n;i++){
         ReInit();
         ok[i]=0;
-        if (i==1) DFS(2);
-        else DFS(1);
-        
-        if (CheckLT()==0) cout << i << " "; 
+        if (dem_tplt() > tmp) cout << i << " "; //tplt tăng khi ngắt đỉnh
     }
 }
 
