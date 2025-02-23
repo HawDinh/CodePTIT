@@ -1,0 +1,1 @@
+{"name":"Local: j","url":"c:\\Users\\ADMIN\\VScode\\CodePTIT\\Code_JAVA\\j.java","tests":[{"id":1726210921464,"input":"3\n11 20 20\n14 20 14\n11 15 12","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ADMIN\\VScode\\CodePTIT\\Code_JAVA\\j.java","group":"local","local":true}
